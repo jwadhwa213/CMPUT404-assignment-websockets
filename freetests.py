@@ -96,7 +96,9 @@ if __name__ == '__main__':
         os.system("kill -9 $(lsof -t -i:8000)");
         os.system("bash run.sh &");
         print("Sleeping 3 seconds")
+        
         gevent.sleep(3)
+        print("here")
         ws = WorldClient('ws://127.0.0.1:8000/subscribe', protocols=['http-only', 'chat'])
         ws2 = WorldClient('ws://127.0.0.1:8000/subscribe', protocols=['http-only', 'chat'])
         ws.daemon = False
